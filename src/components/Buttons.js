@@ -10,20 +10,57 @@ const Button = styled.button`
     padding: 12px 24px;
     cursor: pointer;
     font-family: "Roboto Mono", monospace;
+    transition: background-color 0.2s linear, color 0.2s linear;
+
+    &:hover {
+        background: ${defaultTheme.primaryColorHover};
+        color: ${defaultTheme.textColorOnPrimary};
+    }
+
+    &:focus {
+        outline: 3px solid ${defaultTheme.primaryColorHover};
+        outline-offset: 2px;
+    }
+
+    &:active {
+        background-color: ${defaultTheme.primaryColorActive};
+        border-color: ${defaultTheme.primaryColorActive};
+        color: ${defaultTheme.textColorOnPrimary};
+    }
 `
 
 export const PrimaryButton = styled(Button)`
     background-color: ${defaultTheme.primaryColor};
     color: white;
+
+    &:disabled {
+        background-color: ${defaultTheme.disabled};
+        color: ${defaultTheme.textOnDisabled};
+        cursor: not-allowed;
+    }
 `
 
 export const SecondaryButton = styled(Button)`
     background: none;
     border: 2px solid ${defaultTheme.primaryColor};
+
+    &:disabled {
+        background: none;
+        color: ${defaultTheme.disabled};
+        border-color: ${defaultTheme.disabled};
+        cursor: not-allowed;
+    }
 `
 
 export const TertiaryButton = styled(Button)`
     background: none;
     border: none;
-    color: ${defaultTheme.primaryColor}
+    color: ${defaultTheme.primaryColor};
+
+    &:disabled {
+        background: none;
+        color: ${defaultTheme.disabled};
+        border-color: ${defaultTheme.disabled};
+        cursor: not-allowed;
+    }
 `
